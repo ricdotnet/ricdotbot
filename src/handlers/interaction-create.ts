@@ -37,16 +37,18 @@ export class InteractionCreate {
     const command: Command = new commandClass(interaction);
 
     try {
-      // update last command entry
-      await updateLastCommand(guildId, now);
+      if (!command.isDevCommand) {
+        // update last command entry
+        await updateLastCommand(guildId, now);
 
-      // check if member & user exists
-      await createOrUpdateExistingUserAndMember(
-        guildId,
-        userId,
-        now,
-        commandName,
-      );
+        // check if member & user exists
+        await createOrUpdateExistingUserAndMember(
+          guildId,
+          userId,
+          now,
+          commandName,
+        );
+      }
 
       await command.execute();
 
