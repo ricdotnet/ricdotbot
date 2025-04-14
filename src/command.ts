@@ -2,6 +2,7 @@ import { CommandInteraction } from 'discord.js';
 
 export abstract class Command {
   protected readonly _interaction: CommandInteraction;
+  readonly isDevCommand: boolean = false;
 
   protected constructor(interaction: CommandInteraction) {
     this._interaction = interaction;
