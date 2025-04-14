@@ -7,7 +7,7 @@ export class Commands extends Map {
   private static _instance: Commands;
   private readonly _commands: Command[] = [];
 
-  private readonly ignoredCommands: string[] = ['add', 'next', 'queue', 'start', 'stop'];
+  private readonly ignoredCommands: string[] = [];
   
   constructor() {
     super();
